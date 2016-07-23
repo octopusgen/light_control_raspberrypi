@@ -1,0 +1,107 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>Jquery Apss</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	
+	<script>
+	$(document).ready(function()
+	{
+		/* Turn on all Lights */
+		$("#send").click(function ()
+		{	
+			$.post("../php/post.php", {ON: 1},
+        			function(data,status){		
+				});
+		});
+		/* turn on Light 1 */
+		$("#send1").click(function ()
+		{	
+			$.post("../php/post.php", {LUZ1: 1},
+        			function(data,status){		
+				});
+		});
+		
+		/* turn on Light 2 */
+		$("#send2").click(function ()
+		{	
+			$.post("../php/post.php", {LUZ2: 1},
+        			function(data,status){		
+				});
+		});
+		
+		/* turn off all Lights */
+		$("#send3").click(function ()
+		{	
+			$.post("../php/post.php", {OFF: 1},
+        			function(data,status){		
+				});
+		});
+		
+		$("#led1").change(function ()
+		{	
+			$.post("../php/post.php", {LUZ2: 1},
+				function(data,status){		
+				});
+		});
+	});
+	
+	</script>
+</head>
+
+<body>
+	<!-- Inicio de pagina principal -->
+	<div data-role="page" id="inicio">
+		<!-- header -->
+		<div data-role="header">
+			<a href="#inicio" data-rel="bar" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Casa Inteligente</a>
+			<h1>Control Luces<h1>
+		</div>
+		<!-- /header -->
+		
+		<div role="main" class="ui-content">
+			<p>
+				<form id="login">
+					<div class="ui-field-contain">
+					<input type="button" value="Encender Luces" id="send" class="ui-btn ui-icon-user ui-btn-icon-left">
+					<input type="button" value="Luz 1" id="send1" class="ui-btn ui-icon-user ui-btn-icon-left">
+					<input type="button" value="Luz LED" id="send2" class="ui-btn ui-icon-user ui-btn-icon-left">
+					</div>
+					<input type="button" value="Apagar Luces" id="send3" class="ui-btn ui-icon-user ui-btn-icon-left">
+					<fieldset>
+					  <div data-role="fieldcontain">
+					    <label for="checkbox-based-flipswitch">Luz led:</label>
+					    <input type="checkbox" id="led1" data-role="flipswitch">
+					  </div>
+					</fieldset>
+					<!--<input type="submit" id="sub" data-inline="true" value="Ingresar"> -->
+					
+					<p id="resultado"></p>
+				</form>
+			</p>
+			
+			
+						
+			<div data-role="popup" id="alertaCampos">
+      				<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Cerrar</a>
+      				<p><strong>Ups! debe ingresar un usuario valido.</strong></p>
+			</div>
+			
+			<div data-role="popup" id="alertaPass">
+      				<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Cerrar</a>
+      				<p><strong>Datos ingresados no validos.</strong></p>
+			</div>
+						
+			
+		</div>
+		
+		<div data-role="footer"><h1>Potenciado por Raspberry Pi<h1></div>
+	</div>
+		
+	
+
+</body>
+</html>
