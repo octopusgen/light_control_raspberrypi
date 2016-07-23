@@ -4,7 +4,7 @@ import RPi.GPIO as GPIO
 import time
 
 GPIO.setmode(GPIO.BCM)
-
+# GPioPort numero 4
 gpioList = [4]
 
 for i in gpioList:
